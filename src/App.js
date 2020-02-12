@@ -7,10 +7,14 @@ import Footer from './components/Foother/Foother';
 import ProfileContainer from './components/Profile/ProfileContainer';
 import NewsContainer from './components/News/NewsContainer';
 import UsersContainer from './components/Users/UsersContainer';
+import ShopContainer from './components/Shop/ShopContainer';
 import Login from './components/Login/Login';
+import NewsAll from './components/News/NewsAll';
+
 
 
 import './App.scss';
+
 
 
 
@@ -25,7 +29,9 @@ function App() {
     <Route exact path='/' render={() => <Redirect to={"/profile"}/>}/>
     <Route path='/profile' render={() => <ProfileContainer />}/>
     <Route path='/news' render={() => <NewsContainer />  }/>
+    <Route path='/newsall' render={() => <NewsAll />  }/>
     <Route path='/users' render={() => <UsersContainer /> }/>
+    <Route path='/shop' render={() => <ShopContainer /> }/>
     <Route path='/login'  render={() => <Login />} />
     </Switch>
     </div>

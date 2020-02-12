@@ -1,17 +1,20 @@
 import React , {useState} from "react";
-import { Modal } from "react-bootstrap";
+
+import { NavLink } from 'react-router-dom';
 
 import './News.scss';
+import NewsAll from "./NewsAll";
 
 const News = (props) => {
-  const [smShow, setSmShow] = useState(false);
+ console.log(props)
      return (
        <>
          <div  class="post-wrap">
+           
            {props.news.map(oneNews => (
-             <div key={oneNews.id} class="post-item">
+           <div key={oneNews.id} class="post-item">
                <div class="post-item-wrap">
-                 <b  class="post-link">
+                
                    <img
                      width="100%"
                      height="150px"
@@ -29,40 +32,48 @@ const News = (props) => {
                        ? oneNews.publishedAt
                        : "----"}
                    </b>
-                   <p  onClick={() => setSmShow(true)} class="post-content">{oneNews.description}</p>
-                   <i className='post_more' onClick={() => setSmShow(true)}>Жми чтобы читать...</i>
-                   <Modal
-                     size="-sm"
-                     show={smShow}
-                     onHide={() => setSmShow(false)}
-                     aria-labelledby="example-modal-sizes-title--sm"
-                   >
-                     <Modal.Header closeButton>
-                       <Modal.Title id="example-modal-sizes-title--sm">
-                         <b>{oneNews.title}</b>
-                       </Modal.Title>
-                     </Modal.Header>
-                     <Modal.Body>
-                       <div>
-                         <img
-                           width="100%"
-                           src={oneNews.urlToImage}
-                           alt="News Info"
-                         />
-                       </div>
-                       {oneNews.content} <br />
-                       <b>Заходи и читай</b> :
-                       <a href={oneNews.url}>{oneNews.url}</a>
-                     </Modal.Body>
-                   </Modal>
-                 </b>
-               </div>
+                   <h6  >{oneNews.description}</h6>
+                   <p   className="post-content">{oneNews.description}</p>
+                   
+                   <i onClick={() => {
+                      props.openNewsInNewTab(oneNews.content)
+                   }} className='post_more'><NavLink to='/newsall'>Жми чтобы читать...</NavLink> 
+                 
+                 </i>
+               </div> 
+             
              </div>
-           ))}
+           ))
+           }
+          
          </div>
        </>
      );
 };
 
 
+{/* <Modal
+size="-sm"
+show={smShow}
+onHide={() => setSmShow(false)}
+aria-labelledby="example-modal-sizes-title--sm"
+>
+<Modal.Header closeButton>
+  <Modal.Title id="example-modal-sizes-title--sm">
+    <b>{oneNews.title}</b>
+  </Modal.Title>
+</Modal.Header>
+<Modal.Body>
+  <div>
+    <img
+      width="100%"
+      src={oneNews.urlToImage}
+      alt="News Info"
+    />
+  </div>
+  {oneNews.content} 
+  <b>Заходи и читай</b> :
+  <a href={oneNews.url}>ЗДЕСЬ</a>
+</Modal.Body>
+</Modal> */}
 export default News;

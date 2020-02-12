@@ -2,7 +2,7 @@ import React from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 
-import { getNewsThunk, actionsPortionNews } from '../../redux/reducers/news/news-reducer';
+import { getNewsThunk, actionsPortionNews, actionsOpenNewsInNewTab } from '../../redux/reducers/news/news-reducer';
 import News from './News';
 import Preloader from '../common/Preloader/Preloader';
 import Paginator from '../common/Paginators/Paginators';
@@ -51,7 +51,8 @@ const mapStateToProps = (state) => ({
 export default compose(
      connect(mapStateToProps,{
           getNewsThunk,
-          portionNews:actionsPortionNews
+          portionNews:actionsPortionNews,
+          openNewsInNewTab:actionsOpenNewsInNewTab
      }),
      )(NewsContainer)
 

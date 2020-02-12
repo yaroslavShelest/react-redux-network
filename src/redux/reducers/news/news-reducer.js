@@ -5,6 +5,7 @@ const TOGGLE_IS_LOADING = "news/TOGGLE_IS_LOADING";
 const SET_NEWS_CURRENT_PAGE = "news/SET_NEWS_CURRENT_PAGE";
 const SET_TOTAL_COUNT_NEWS = "news/SET_TOTAL_COUNT_NEWS";
 const CHANGE_PORTION_NUMBER = "news/CHANGE_PORTION_NUMBER";
+const OPEN_NEW = "news/OPEN_NEW";
 
 
 const initialState = {
@@ -13,7 +14,8 @@ const initialState = {
      pageSize: 3,
      currentPage: 1,
      totalNewsCount: 0,
-     portionNumber:1
+     portionNumber:1,
+     moreNewsContent: 'null',
 };
 
 const newsReducer = (state = initialState, action) => {
@@ -46,6 +48,11 @@ const newsReducer = (state = initialState, action) => {
             return {
                 ...state,
                 portionNumber: action.portion
+          }; 
+          case OPEN_NEW:
+            return {
+                ...state,
+                moreNewsContent: action.tittle
           }; 
         
          default:
@@ -89,7 +96,14 @@ export const actionsPortionNews = (portion) => {
      }
  };
 
+ export const actionsOpenNewsInNewTab = (tittle) => {
+    return {
+        type: OPEN_NEW, 
+        tittle 
+    }
+};
 
+ 
 
 export const getNewsThunk = (currentPage, pageSize) => {
      return async (dispatch) => {
