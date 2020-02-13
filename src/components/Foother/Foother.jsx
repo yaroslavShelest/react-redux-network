@@ -37,15 +37,12 @@ const ModalButton = ()=>{
 
 const Footer = () => {
   function getCurrentTimeString() {
-    return new Date().toTimeString().replace(/ .*/, '');
- }
+    return new Date().toTimeString().replace(/ .*/, "");
+  }
 
- let timeRef = React.createRef();
- 
- setInterval(
-  () => timeRef.current.innerHTML = getCurrentTimeString(),
-  1000
-);
+  let timeRef = React.createRef();
+
+  setInterval(() => (timeRef.current.innerHTML = getCurrentTimeString()), 1000);
   return (
     <footer className="footer">
       <div className="container d-flex align-items-center ">
@@ -53,9 +50,9 @@ const Footer = () => {
           © 2020 Приложение разработано в тестовых целя,чтобы потренировать
           Front end разработку
         </i>
-        <ModalButton />  <div className='show_date' ref={timeRef} > </div> 
-       
-       
+        <ModalButton />
+        <div className="show_date" ref={timeRef}>
+        </div>
       </div>
     </footer>
   );

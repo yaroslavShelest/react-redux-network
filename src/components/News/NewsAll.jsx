@@ -2,12 +2,11 @@ import React  from "react";
 import { connect } from "react-redux";
 import { NavLink } from 'react-router-dom';
 
-const NewsAll = (props) =>{
-  console.log(props.oneNews)
+const NewsAll = ({content}) =>{
   return(
     <div>
      <NavLink to='/news'> Вернуться</NavLink>
-      <h1>{props.content}</h1>
+      <h1>{content}</h1>
     </div>
   )
 }

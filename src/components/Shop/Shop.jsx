@@ -4,14 +4,14 @@ import { ButtonGroup ,  Button } from "react-bootstrap";
 
 import './Shop.scss';
 
-const Shop = props => {
+const Shop = ({setFilter, setSearchQuery, books, searchQuery}) => {
   return (
     <>
       <div className="shop_wraper">
         <ButtonGroup aria-label="Basic example">
           <Button
             onClick={() => {
-              props.setFilter("all");
+              setFilter("all");
             }}
             variant="info"
           >
@@ -19,7 +19,7 @@ const Shop = props => {
           </Button>
           <Button
             onClick={() => {
-              props.setFilter("price_high");
+              setFilter("price_high");
             }}
             variant="info"
           >
@@ -27,7 +27,7 @@ const Shop = props => {
           </Button>
           <Button
             onClick={() => {
-              props.setFilter("price_low");
+              setFilter("price_low");
             }}
             variant="info"
           >
@@ -35,7 +35,7 @@ const Shop = props => {
           </Button>
           <Button
             onClick={() => {
-              props.setFilter("popular");
+              setFilter("popular");
             }}
             variant="info"
           >
@@ -43,7 +43,7 @@ const Shop = props => {
           </Button>
           <Button
             onClick={() => {
-              props.setFilter("author");
+              setFilter("author");
             }}
             variant="info"
           >
@@ -53,8 +53,8 @@ const Shop = props => {
 
         <div className="search">
           <input
-            onChange={e => props.setSearchQuery(e.target.value)}
-            value={props.searchQuery}
+            onChange={e => setSearchQuery(e.target.value)}
+            value={searchQuery}
             type="search"
             placeholder="поиск"
             className="input"
@@ -63,12 +63,12 @@ const Shop = props => {
         </div>
       </div>
       <div className="shop_content">
-        {props.books.length === 0 ? (
+        {books.length === 0 ? (
           <div>
             <h1>Поиск не дал результата</h1>
           </div>
         ) : (
-          props.books.map(oneItem => (
+          books.map(oneItem => (
             <div key={oneItem.id} className="product-wrap">
               <div className="product-item">
                 <img height="350px" src={oneItem.image} alt={"Books"} />

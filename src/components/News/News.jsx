@@ -3,15 +3,14 @@ import React , {useState} from "react";
 import { NavLink } from 'react-router-dom';
 
 import './News.scss';
-import NewsAll from "./NewsAll";
 
-const News = (props) => {
- console.log(props)
+
+const News = ({news, openNewsInNewTab}) => {
      return (
        <>
          <div  class="post-wrap">
            
-           {props.news.map(oneNews => (
+           {news.map(oneNews => (
            <div key={oneNews.id} class="post-item">
                <div class="post-item-wrap">
                 
@@ -36,7 +35,7 @@ const News = (props) => {
                    <p   className="post-content">{oneNews.description}</p>
                    
                    <i onClick={() => {
-                      props.openNewsInNewTab(oneNews.content)
+                      openNewsInNewTab(oneNews.content)
                    }} className='post_more'><NavLink to='/newsall'>Жми чтобы читать...</NavLink> 
                  
                  </i>

@@ -5,7 +5,7 @@ import './Profile.scss';
 import Preloader from "../common/Preloader/Preloader";
 
 
-const Profile = () => {
+const Profile = (props) => {
   return (
     <div>
       <div className="d10">
