@@ -1,0 +1,116 @@
+.profile_title {
+     font-size: 60px;
+}
+
+.wraper_profile {
+     width: 400px;
+}
+
+.profile_status {
+     font-size: 36px;
+     margin-top: 30px;
+     margin-bottom: 200px;
+     text-shadow: 1px 1px 0 hsl(214, 91%, 46%),
+          2px 2px 0 hsl(239, 100%, 50%),
+          3px 3px 0 hsl(197, 90%, 31%),
+          4px 4px 0 hsl(221, 100%, 50%),
+          5px 5px 0 hsl(199, 100%, 50%),
+          6px 6px 0 hsl(204, 100%, 55%),
+          7px 7px 0 hsl(187, 100%, 60%),
+          8px 8px 0 hsl(162, 100%, 65%);
+     color: hsl(182, 100%, 40%);
+     transition: all 1s;
+}
+
+.profile_status:hover {
+     text-shadow: 1px -1px 0 hsl(290, 100%, 40%),
+          2px -2px 0 hsl(290, 100%, 40%),
+          3px -3px 0 hsl(280, 100%, 60%),
+          4px -4px 0 hsl(280, 100%, 60%),
+          5px -5px 0 hsl(270, 100%, 75%),
+          6px -6px 0 hsl(270, 100%, 80%),
+          7px -7px 0 hsl(260, 100%, 85%),
+          8px -8px 0 hsl(260, 100%, 90%);
+     color: hsl(300, 100%, 30%);
+}
+
+hr {
+     color: black;
+     border-top: 3px solid black;
+}
+
+.button-2 {
+     text-decoration: none;
+     position: relative;
+     display: inline-block;
+     height: 50px;
+     line-height: 50px;
+     padding: 0 15px;
+     font-family: monospace;
+     font-size: 16px;
+     color: #232323;
+}
+
+.button-2 p {
+     position: relative;
+}
+
+.button-2:before {
+     content: "";
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 35px;
+     height: 100%;
+     background: #C4F1FF;
+     transition: .3s ease-in-out;
+}
+
+.button-2:hover:before {
+     width: 100%;
+}
+
+.example-1 .form-group {
+     padding: 1em;
+     margin: 1em
+}
+
+.example-1 input[type=file] {
+     outline: 0;
+     opacity: 0;
+     pointer-events: none;
+     user-select: none
+}
+
+.example-1 .label {
+     width: 50px;
+     height: 35px;
+     border: 2px dashed grey;
+     border-radius: 5px;
+     display: block;
+     transition: border 300ms ease;
+     cursor: pointer;
+     text-align: center
+}
+
+.example-1 .label i {
+     display: block;
+     font-size: 30px;
+     padding-bottom: 16px
+}
+
+.example-1 .label i,
+.example-1 .label .title {
+     color: grey;
+     transition: 200ms color
+}
+
+.example-1 .label:hover {
+     border: 2px solid #000
+}
+
+.example-1 .label:hover i,
+.example-1 .label:hover .title {
+     color: #000
+}
+

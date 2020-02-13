@@ -10,13 +10,10 @@ import UsersContainer from './components/Users/UsersContainer';
 import ShopContainer from './components/Shop/ShopContainer';
 import Login from './components/Login/Login';
 import NewsAll from './components/News/NewsAll';
-
+// const DialogsContainer = React.lazy(() => import('./components/Dialogs/DialogsContainer'));
 
 
 import './App.scss';
-
-
-
 
 
 function App() {
@@ -39,7 +36,7 @@ function App() {
   <Footer />
   </>
   );
-}
+};
 
 export default App;
  

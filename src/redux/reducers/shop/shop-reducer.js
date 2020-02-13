@@ -12,7 +12,8 @@ const REMOVE_FROM_CART = 'shop/REMOVE_FROM_CART';
 const initialState = {
      isLoading: false,
      items: [],
-     id: []
+     searchQuery: '',
+     filterBy: 'all',
 };
 
 
@@ -22,12 +23,22 @@ const shopReducer = (state = initialState, action) => {
                return {
                     ...state,
                     items: action.payload,
-                         isLoading: true,
+                    isLoading: true,
                };
           case TOGGLE_IS_LOADING:
                return {
                     ...state,
                     isLoading: action.isLoading
+               };
+          case SET_FILTER:
+               return {
+                    ...state,
+                    filterBy: action.payload,
+          };
+          case SET_QUERY:
+               return {
+                 ...state,
+                 searchQuery: action.payload,
                };
 
           default:
@@ -46,23 +57,23 @@ export const actionsToggleIsLoading = (isLoading) => {
          isLoading 
      }
 };
-export const setFilter = filter => ({
+export const actionsSetFilter = filter => ({
      type: SET_FILTER,
      payload: filter,
 });
 
-export const setSearchQuery = value => ({
+export const actionsSetSearchQuery = value => ({
      type: SET_QUERY,
      payload: value,
 });
 
 
-export const addToCart = obj => ({
+export const actionsAddToCart = obj => ({
      type: ADD_TO_CART,
      payload: obj,
 });
 
-export const removeFromCart = id => ({
+export const actionsRemoveFromCart = id => ({
      type: REMOVE_FROM_CART,
      payload: id,
 });

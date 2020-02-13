@@ -7,6 +7,7 @@ import shopReducer from './shop/shop-reducer';
 
 
 
+
 export default combineReducers({
      profileReducer,
      newsReducer,
