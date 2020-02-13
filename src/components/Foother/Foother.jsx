@@ -48,7 +48,7 @@ const Footer = () => {
 );
   return (
     <footer className="footer">
-      <div className="container d-flex ">
+      <div className="container d-flex align-items-center ">
         <i>
           © 2020 Приложение разработано в тестовых целя,чтобы потренировать
           Front end разработку

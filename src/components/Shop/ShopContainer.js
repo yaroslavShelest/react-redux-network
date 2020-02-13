@@ -4,13 +4,14 @@ import { connect } from 'react-redux';
 
 import Shop from './Shop';
 import Preloader from '../common/Preloader/Preloader';
+import { getBooksThunk } from '../../redux/reducers/shop/shop-reducer';
 
 
 
 
 class ShopContainer extends React.Component  {
      componentDidMount() {
-          // this.props.getNewsThunk(this.props.currentPage, this.props.pageSize)
+          this.props.getBooksThunk()
      };
      
      render() {
@@ -28,13 +29,15 @@ class ShopContainer extends React.Component  {
 }
 
 const mapStateToProps = (state) => ({
-    
+     isLoading:state.shopReducer.isLoading,
+     books:state.shopReducer.items
 });
+
 
 
 export default compose(
      connect(mapStateToProps,{
-         
+          getBooksThunk
      }),
      )(ShopContainer)
 

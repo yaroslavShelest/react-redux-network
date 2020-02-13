@@ -20,23 +20,24 @@ const Shop = props => {
           <input type="submit" name="" value="" className="submit" />
         </div>
       </div>
-      <div className='shop_content'>
-        <div class="product-wrap">
-          <div class="product-item">
-            <img src="https://cv9.litres.ru/pub/c/elektronnaya-kniga/cover_415/27624091-den-braun-proishozhdenie-27624091.jpg" />
-            <div class="product-buttons">
-              <i href="" class="button">
-                В корзину
-              </i>
+      <div className="shop_content">
+        {props.books.map(oneItem => (
+          <div class="product-wrap">
+            <div class="product-item">
+              <img height='350px' src={oneItem.image} alt={'Books'} />
+              <div class="product-buttons">
+                <i href="" class="button">
+                  В корзину
+                </i>
+              </div>
+            </div>
+            <div class="product-title">
+              <h4>{oneItem.title}</h4>
+              <p>{oneItem.author}</p>
+              <p class="product-price">  {oneItem.price} ₽</p>
             </div>
           </div>
-          <div class="product-title">
-            <h3>dlsfllds;fldsl</h3>
-            <p>fdnjh fdnjfj</p>
-            <p class="product-price">₽ 1999</p>
-          </div>
-        </div>
-
+        ))}
       </div>
     </>
   );

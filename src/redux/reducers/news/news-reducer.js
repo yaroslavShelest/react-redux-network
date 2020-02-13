@@ -18,6 +18,9 @@ const initialState = {
      moreNewsContent: 'null',
 };
 
+
+
+
 const newsReducer = (state = initialState, action) => {
      switch (action.type) {
          case SET_NEWS:
