@@ -12,8 +12,14 @@ const instanseUsersApi = axios.create(
 
 
 export const usersApi = {
-     getUsers(currentPage , pageSize) {
-          return instanseUsersApi.get(`users?page=${currentPage}&count=${pageSize}`)
+     getUsers(pageNumber, pageSize) {
+          return instanseUsersApi.get(`users?page=${pageNumber}&count=${pageSize}`)
+               .then(response => {
+                    return response.data
+               })
+     },
+     getUsersTerm(pageSize,pageNumber, text) {
+          return instanseUsersApi.get(`users?count=${pageSize}&page=${pageNumber}&term=${text}`)
                .then(response => {
                     return response.data
                })
@@ -23,5 +29,6 @@ export const usersApi = {
      },
      userUnfollow(userId) {
           return instanseUsersApi.delete(`follow/${userId}`)
-      }
-}
+     }
+};
+

@@ -24,12 +24,12 @@ const Profile = ({profile , status , updateStatus , isOwner , savePhoto }) => {
       <div className="row">
         <div className="col d-flex flex-column justify-content-center ">
           <Col xs={7} md={9}>
-            <div className="example-1">
+          {isOwner &&  <div className="example-1">
               <label className="label">
                 <i className="material-icons">attach_file</i>
                 <input type="file"  onChange={onMainPhotoSelected} />
               </label>
-            </div>
+            </div>}
             <Image
               src={
                 profile.photos.large != null
