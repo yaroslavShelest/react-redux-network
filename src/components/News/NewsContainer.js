@@ -6,6 +6,7 @@ import { getNewsThunk, actionsPortionNews, actionsOpenNewsInNewTab } from '../..
 import News from './News';
 import Preloader from '../common/Preloader/Preloader';
 import Paginator from '../common/Paginators/Paginators';
+import { withAuthRedirect } from '../../hoc/withAuthRedirect';
 
 
 
@@ -54,6 +55,7 @@ export default compose(
           portionNews:actionsPortionNews,
           openNewsInNewTab:actionsOpenNewsInNewTab
      }),
+     withAuthRedirect
      )(NewsContainer)
 
      

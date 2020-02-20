@@ -3,9 +3,13 @@ import { NavLink } from 'react-router-dom';
 import { Navbar, Nav, NavDropdown ,Image } from "react-bootstrap";
 
 import logo from '../../../assets/img/kid-and-baby.svg';
+import Preloader from "../../common/Preloader/Preloader";
 
 
-const Navigation = () => {
+const Navigation = ({login , profile ,  logOut}) => {
+  
+    
+
   return (
     <Navbar bg="primary" className="bg" expand="lg">
       <Navbar.Brand href="#0">
@@ -56,18 +60,20 @@ const Navigation = () => {
             <NavDropdown.Item>Страница постов блога</NavDropdown.Item>
             <NavDropdown.Item>Создать свой пост</NavDropdown.Item>
             <NavDropdown.Item>Корзина магазина</NavDropdown.Item>
-            <NavDropdown.Item>Выйти из приложения</NavDropdown.Item>
+            <NavDropdown.Item onClick={logOut}>Выйти из приложения</NavDropdown.Item>
             <NavDropdown.Divider />
             <NavDropdown.Item>Настройки личного кабинета</NavDropdown.Item>
             <NavDropdown.Item>
-              Вы вошли как: <b>yarik_shelest</b>
+                Вы вошли как: <b>{login}</b>
             </NavDropdown.Item>
           </NavDropdown>
 
           <Image
             width="55px"
             height="50px"
-            src="https://helpiewp.com/wp-content/uploads/2017/12/user-roles-wordpress.png"
+            src = {profile != null
+            ? profile.photos.large
+            : "https://pngimage.net/wp-content/uploads/2018/06/user-png-image-5.png"}
             roundedCircle
           />
         </Nav>

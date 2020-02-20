@@ -1,5 +1,6 @@
 import React from "react";
 import { Card , Button } from "react-bootstrap";
+import { NavLink } from 'react-router-dom';
 
 import "./Users.scss";
 
@@ -11,6 +12,7 @@ const Users = props => {
       <div className="users_wraper">
         {props.users.map(user => (
           <Card key={user.id} style={{ width: "18rem" }}>
+               <NavLink to={'/profile/' + user.id}>
             <Card.Img
               variant="top"
               src={
@@ -19,6 +21,7 @@ const Users = props => {
                   : "https://helpiewp.com/wp-content/uploads/2017/12/user-roles-wordpress.png"
               }
             />
+            </NavLink>
             <Card.Body>
               <Card.Title>
                 <ol class="rounded">

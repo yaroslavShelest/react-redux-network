@@ -1,9 +1,8 @@
 import React from "react";
 
-import Navigation from "./Navigation/Navigation";
+import NavigationContainer from "./Navigation/NavigationContainer";
 
 import './Header.scss';
-
 
 
 
@@ -11,7 +10,7 @@ const Header = () => {
      return (
        <div className="bg">
          <div className="container">
-         <Navigation />
+         <NavigationContainer />
          </div>
        </div>
      );

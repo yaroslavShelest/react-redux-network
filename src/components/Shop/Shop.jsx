@@ -73,7 +73,7 @@ const Shop = ({setFilter, setSearchQuery, books, searchQuery}) => {
               <div className="product-item">
                 <img height="350px" src={oneItem.image} alt={"Books"} />
                 <div className="product-buttons">
-                  <i href="" class="button">
+                  <i  className="button">
                     В корзину
                   </i>
                 </div>

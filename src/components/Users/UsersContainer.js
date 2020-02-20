@@ -7,6 +7,7 @@ import Users from './Users';
 import Preloader from '../common/Preloader/Preloader';
 import Paginator from '../common/Paginators/Paginators';
 import { followThunk, unFollowThunk, getUsersThunk, actionsPortion } from '../../redux/reducers/users/user-reducers';
+import { withAuthRedirect } from '../../hoc/withAuthRedirect';
 
 class UsersContainer extends React.Component  {
      componentDidMount() {
@@ -57,4 +58,5 @@ export default compose(
           unFollowThunk,
           portionUser:actionsPortion
       }),
+      withAuthRedirect 
      )(UsersContainer)

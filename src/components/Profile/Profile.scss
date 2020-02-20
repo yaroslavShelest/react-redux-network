@@ -1,7 +1,9 @@
 .profile_title {
      font-size: 60px;
 }
-
+.profile{
+     border: 1px solid rgb(43, 45, 46);
+}
 .wraper_profile {
      width: 400px;
 }
@@ -114,3 +116,9 @@ hr {
      color: #000
 }
 
+.setting_button{
+     margin-top: 100px;
+}
+.col{
+     height: 50%;
+}

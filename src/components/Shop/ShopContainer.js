@@ -6,6 +6,8 @@ import orderBy from 'lodash/orderBy';
 import Shop from './Shop';
 import Preloader from '../common/Preloader/Preloader';
 import { getBooksThunk, actionsSetFilter, actionsSetSearchQuery } from '../../redux/reducers/shop/shop-reducer';
+import { withAuthRedirect } from '../../hoc/withAuthRedirect';
+
 
 const sortBy = (books, filterBy) => {
      switch (filterBy) {
@@ -20,24 +22,25 @@ const sortBy = (books, filterBy) => {
           default:
                return books;
      }
-     };
+};
 
-     const filterBooks = (books, searchQuery) =>
-          books.filter(
-               o =>
-               o.title.toLowerCase().indexOf(searchQuery.toLowerCase()) >= 0 ||
-               o.author.toLowerCase().indexOf(searchQuery.toLowerCase()) >= 0,
-          );
+const filterBooks = (books, searchQuery) =>
+     books.filter(
+          o =>
+          o.title.toLowerCase().indexOf(searchQuery.toLowerCase()) >= 0 ||
+          o.author.toLowerCase().indexOf(searchQuery.toLowerCase()) >= 0,
+     );
 
-     const searchBooks = (books, filterBy, searchQuery) => {
-          return sortBy(filterBooks(books, searchQuery), filterBy);
-     };
+const searchBooks = (books, filterBy, searchQuery) => {
+     return sortBy(filterBooks(books, searchQuery), filterBy);
+};
 
 class ShopContainer extends React.Component {
      
      componentDidMount() {
           this.props.getBooksThunk()
-          };
+     };
+
      render() {
           return ( 
           <div>
@@ -48,7 +51,7 @@ class ShopContainer extends React.Component {
          </div>
          )
       }
-}
+};
 
 const mapStateToProps = (state) => ({
      isLoading:state.shopReducer.isLoading,
@@ -64,6 +67,7 @@ export default compose(
           setFilter:actionsSetFilter,
           setSearchQuery:actionsSetSearchQuery
      }),
+     withAuthRedirect
      )(ShopContainer)
 
      
